@@ -51,12 +51,12 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]
             then
-              aws s3 sync ~repo/build s3://${AWS_BUCKET_PRODUCTION} --delete
+              aws s3 sync ~/repo/build s3://${AWS_BUCKET_PRODUCTION} --delete
             elif [ "${CIRCLE_BRANCH}" == "staging" ]
             then
-              aws s3 sync ~repo/build s3://${AWS_BUCKET_STAGING} --delete
+              aws s3 sync ~/repo/build s3://${AWS_BUCKET_STAGING} --delete
             else
-              aws s3 sync ~repo/build s3://${AWS_BUCKET_DEV} --delete
+              aws s3 sync ~/repo/build s3://${AWS_BUCKET_DEV} --delete
             fi
 
   deploy-to-aws-cloudfront:
