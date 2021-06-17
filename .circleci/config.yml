@@ -11,7 +11,7 @@ jobs:
           name: Show current branch # This is just name of the below command
           command: echo ${CURRENT_BRANCH} # CURRENT_BRANCH is an Environment variable coming fro circleci. The branch that we will checkout will be stored in this env variable
       - restore_cache: # Check if we have any data in the cache
-          key:
+          keys:
             - app-{{ checksum "package.json" }}
             - app-
       - run:
